@@ -6,8 +6,11 @@
 package javaapplicationbruno;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javaapplicationbruno.Tela.TelaPrograma;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 /**
  *
  * @author Luis
@@ -17,18 +20,23 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){
-        /*JFrame frame = new JFrame("Recovery  Fisioterapia e Osteopatia");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Dimension dimensao = t.getScreenSize();
-        frame.setSize((dimensao.width + 5), (dimensao.height - 38));
-        frame.setVisible(true);
-        ImageIcon img = new ImageIcon("icone.png"); //NAO FUNCIONA
-        frame.setIconImage(img.getImage());         //NAO FUNCIONA
-        */
+    public static void main(String[] args){      
+        TelaPrograma abre;                                                      //Inicia a Tela Principal do programa
+        abre = new TelaPrograma();
+        abre.setVisible(true);
+        abre.setResizable(false);
+        abre.setLocationRelativeTo(null);
         
-        //frame.dispose();
+        try {
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) { //Setar o look and feel do programa
+                if ("Windows".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+           // If Nimbus is not available, you can set the GUI to another look and feel.
+        }
     }
     
 }

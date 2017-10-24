@@ -4,20 +4,21 @@
  * and open the template in the editor.
  */
 package javaapplicationbruno.Tela;
+import java.awt.Toolkit;
 
 /**
  *
  * @author Luis
  */
 public class TelaPrograma extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form TelaPrograma
      */
     public TelaPrograma() {
         initComponents();
+        setIcon();                                                              //setando a imagem do icone do jframe
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,31 +32,74 @@ public class TelaPrograma extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Recovery - Fisioterapia e Osteopatia");
-        setPreferredSize(new java.awt.Dimension(1366, 768));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1366, 768));
 
         jButton1.setText("Pesquisar Paciente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cadastrar Paciente");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPane1.setBackground(new java.awt.Color(240, 240, 240));
+        jDesktopPane1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1366, 768));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/recoveryimagem.jpg"))); // NOI18N
+
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(107, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
-                .addComponent(jButton1)
-                .addGap(66, 66, 66)
-                .addComponent(jButton2)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(jButton1)
+                        .addGap(66, 66, 66)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,7 +109,8 @@ public class TelaPrograma extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(677, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,6 +127,35 @@ public class TelaPrograma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CadastrarPaciente cadastra;                                             //Método para chamar a tela Cadastro de Paciente quando botao for pressionado
+        cadastra = new CadastrarPaciente();
+        if (telacadastroestafechada == 0){
+        }else{
+            jDesktopPane1.add(cadastra);
+            cadastra.setVisible(true);
+            telacadastroestafechada = 0;
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PesquisarPaciente pesquisa;
+        pesquisa = new PesquisarPaciente();                                     //Método para chamar a tela Pesquisar Paciente quando botao for pressionado
+        if (telapesquisaestafechada == 0){
+        }else{
+            jDesktopPane1.add(pesquisa);
+            pesquisa.setVisible(true);
+            telapesquisaestafechada = 0;
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+    
+    static int telacadastroestafechada = 1;                                     //Apelei e coloquei uma variavel global para ver se a tela do cadastro esta aberta ou nao
+    static int telapesquisaestafechada = 1;                                     //Apelei e coloquei uma variavel global para ver se a tela da pesquisa esta aberta ou nao
+    
     /**
      * @param args the command line arguments
      */
@@ -120,7 +194,13 @@ public class TelaPrograma extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagem/icone.png")));        //setando a imagem do icone do jframe
+    }
 }
