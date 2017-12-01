@@ -27,11 +27,10 @@ public class PesquisarPaciente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBorder(null);
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("Pesquisar Paciente");
+        setFrameIcon(null);
         setPreferredSize(new java.awt.Dimension(1340, 500));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -60,14 +59,14 @@ public class PesquisarPaciente extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1324, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 521, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 1350, 640);
+        setBounds(0, 0, 1340, 550);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
